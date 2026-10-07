@@ -1,0 +1,7 @@
+{
+  "name": "dexter-payment-server",
+  "version": "1.0.0",
+  "main": "dexter_payment_server.js",
+  "scripts": { "start": "node dexter_payment_server.js" },
+  "engines": { "node": ">=18" }
+}
