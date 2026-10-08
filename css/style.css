@@ -49,3 +49,36 @@ input,select,textarea{font-size:16px;padding:10px 12px}.btn{padding:10px 14px}.b
 footer{padding:14px 12px}
 }
 @media(max-width:380px){.hn,.hu .tg{display:none}.hero h2{font-size:21px}}
+
+/* ---------- การ์ดสินค้าแบบใหม่ (รูปใหญ่ + ป้าย + แถบสต็อก + ปุ่มเต็มความกว้าง) ---------- */
+.grid{grid-template-columns:repeat(auto-fill,minmax(178px,1fr));gap:14px}
+.pc{background:var(--pcbg,#0e0f11);border:1px solid var(--l);border-radius:22px;overflow:hidden;font-size:13px;transition:.2s}.pc:hover{border-color:var(--a);transform:translateY(-2px)}
+.pi{position:relative;aspect-ratio:1/1;height:auto;background:radial-gradient(circle at 50% 38%,color-mix(in srgb,var(--a) 28%,transparent),transparent 68%),color-mix(in srgb,var(--pcbg,#0e0f11) 70%,#000);display:grid;place-items:center;color:var(--l);font-size:44px}
+.pi img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.pi:after{content:"";position:absolute;left:0;right:0;bottom:0;height:34%;background:linear-gradient(transparent,var(--pcbg,#0e0f11));pointer-events:none}
+.ptag{position:absolute;top:10px;left:14px;z-index:2;font-weight:700;font-size:12px;color:#fff;text-shadow:0 1px 6px #000}
+.pc .bd{padding:12px 14px 14px;gap:6px;display:grid}
+.pcat{font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--m);min-height:1.2em}
+.pc .pn{font-size:13.5px;font-weight:600;line-height:1.35;white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:2.7em}
+.prow{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:4px 0 2px}.prow small{color:var(--m)}.pc .prow b{font-size:15px;white-space:nowrap}
+.pst{display:flex;align-items:center;gap:8px;min-width:0;white-space:nowrap}.bar{width:42px;height:4px;border-radius:9px;background:var(--l);overflow:hidden;flex:none}.bar u{display:block;height:100%;background:var(--a);border-radius:9px}
+.pbuy{width:100%;border-radius:14px;padding:11px;font-size:14px;background:var(--a);color:var(--ona,#04141c)}.pbuy:disabled{opacity:.35;cursor:not-allowed}
+@media(max-width:700px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.pc{border-radius:18px}.pc .bd{padding:10px 10px 12px}.pi{font-size:34px}.pcat{font-size:9.5px;letter-spacing:.1em}.bar{width:28px}.pbuy{padding:10px;font-size:13px}.ptag{left:10px;top:8px}}
+
+/* ---------- หน้ารายละเอียดสินค้า ---------- */
+.pd{display:grid;gap:16px}.pdg{display:grid;grid-template-columns:minmax(0,1fr) 420px;gap:28px;align-items:start}
+.pdt{font-size:34px;line-height:1.15;margin-top:4px}.pdi{position:relative;aspect-ratio:1/1;max-width:560px;border-radius:22px;overflow:hidden;border:1px solid var(--l);background:radial-gradient(circle at 50% 38%,color-mix(in srgb,var(--a) 28%,transparent),transparent 68%),color-mix(in srgb,var(--pcbg,#0e0f11) 70%,#000);display:grid;place-items:center;font-size:64px;color:var(--l)}.pdi img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.stb{position:absolute;top:12px;left:12px;z-index:2;background:#000a;border:1px solid var(--l);border-radius:99px;padding:4px 11px;font-size:12px;display:flex;gap:7px;align-items:center;color:#fff}.stb i{width:8px;height:8px;border-radius:50%;background:var(--a)}
+.pdp{display:grid;gap:16px;padding:20px;position:sticky;top:76px;background:var(--pcbg,#0e0f11);border-radius:22px}.pdpr{font-size:38px}
+.opts{display:grid;gap:8px}.opt{display:flex;align-items:center;gap:10px;padding:13px 14px;border:1px solid var(--l);border-radius:12px;cursor:pointer;transition:.15s}.opt:hover{border-color:var(--a)}.opt.on{border-color:var(--a);background:color-mix(in srgb,var(--a) 10%,transparent)}.opt.off{opacity:.5;cursor:not-allowed}.opt .pp{margin-left:auto;font-weight:600;white-space:nowrap}
+.rdo{width:16px;height:16px;border-radius:50%;border:2px solid var(--l);flex:none}.opt.on .rdo{border-color:var(--a);background:var(--a);box-shadow:inset 0 0 0 3px var(--pcbg,#0e0f11)}
+.sum{display:grid;gap:8px;border-top:1px solid var(--l);padding-top:12px}.tot{font-size:16px;border-top:1px solid var(--l);padding-top:10px;margin-top:2px}
+.pdb{height:48px;font-size:15px}.vr{display:grid;gap:6px;padding:10px;border:1px solid var(--l);border-radius:12px}.dc{width:48px!important;display:inline-block;padding:2px 4px;border-radius:6px;font-size:12px;text-align:center}
+@media(max-width:860px){.pdg{grid-template-columns:minmax(0,1fr)}.pdp{position:static}.pdt{font-size:26px}.pdpr{font-size:32px}}
+
+/* ---------- ปุ่มเพลง ---------- */
+#mu{position:fixed;left:14px;bottom:calc(14px + env(safe-area-inset-bottom));z-index:40;display:flex;align-items:center;gap:8px}
+.mc{width:46px;height:46px;border-radius:50%;border:0;display:grid;place-items:center;cursor:pointer;color:var(--ona,#fff);background:var(--a);box-shadow:0 6px 18px #0008;transition:transform .15s}.mc:hover{transform:scale(1.07)}
+.mc.on{animation:mp 2s infinite}@keyframes mp{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--a) 55%,transparent)}70%{box-shadow:0 0 0 12px transparent}100%{box-shadow:0 0 0 0 transparent}}
+.mv-b{width:38px;height:38px;background:var(--s);color:var(--t);border:1px solid var(--l)}
+.mvs{background:var(--s);border:1px solid var(--l);border-radius:99px;padding:8px 14px;box-shadow:0 6px 18px #0008}.mvs input{width:110px;padding:0;border:0;background:none;accent-color:var(--a);cursor:pointer;display:block}
+@media(max-width:700px){#mu{bottom:calc(78px + env(safe-area-inset-bottom))}}
