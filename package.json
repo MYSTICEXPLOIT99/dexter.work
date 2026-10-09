@@ -1,0 +1,7 @@
+{
+  "name": "dexter-store",
+  "version": "2.0.0",
+  "description": "Dexter Store - web + database server",
+  "scripts": { "start": "node server/server.js" },
+  "engines": { "node": ">=18" }
+}
