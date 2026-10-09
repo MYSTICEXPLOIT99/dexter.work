@@ -7,7 +7,7 @@ function prodPage(){return `<div class="shop"><div class="cats"><button class="c
 let DT={pid:0,vi:0,code:'',cp:null};
 const rdisc=u=>u&&u!==S.adm?((S.ranks.find(r=>r.id==u.rank)||{}).disc||0):0,cpOk=c=>c&&(!c.max||(c.used||0)<c.max);
 function calc(o){const base=o.price,rd=rb(base*rdisc(me)/100),a=rb(base-rd),c=DT.cp,cd=c?rb(c.type=='pct'?a*c.val/100:Math.min(c.val,a)):0;return{base,rd,cd,total:Math.max(0,rb(a-cd))}}
-function openP(id){const p=S.prods.find(x=>x.id==id);if(!p)return;p.views=(p.views||0)+1;save();const vi=vars(p).findIndex(o=>o.items.length>0);DT={pid:id,vi:vi<0?0:vi,code:'',cp:null};page='product';render();scrollTo(0,0)}
+function openP(id){const p=S.prods.find(x=>x.id==id);if(!p)return;p.views=(p.views||0)+1;if(!SRV)save();const vi=vars(p).findIndex(o=>o.items.length>0);DT={pid:id,vi:vi<0?0:vi,code:'',cp:null};page='product';render();scrollTo(0,0)}
 function prodDetail(){const p=S.prods.find(x=>x.id==DT.pid);if(!p){page='products';return prodPage()}const v=vars(p),o=v[DT.vi]||v[0],c=S.cats.find(x=>x.id==p.cat),n=stk(p),k=calc(o),can=o.items.length>0,bd=(p.badges||'').split(',').map(x=>x.trim()).filter(Boolean);
 return `<div class="pd"><div class="r"><button class="btn g s" onclick="go('products')" title="กลับ" style="font-size:20px;line-height:1;padding:3px 12px">‹</button><span class="m"><a style="cursor:pointer" onclick="go('products')">สินค้าทั้งหมด</a> / ${E(c?c.name:'')}</span></div>
 <div class="pdg"><div style="display:grid;gap:12px;align-content:start"><div><span class="pcat">${E(c?c.name:'')}</span><h2 class="pdt">${E(p.name)}</h2></div><div class="r">${bd.map(x=>`<span class="tg n">${E(x)}</span>`).join('')}<span class="tg">ส่งอัตโนมัติ</span><span class="m" style="font-size:12px">ดูแล้ว ${p.views||0} ครั้ง</span></div>
